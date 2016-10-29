@@ -201,6 +201,9 @@ if __name__ == "__main__":
     from nab.detectors.context_ose.context_ose_detector import (
     ContextOSEDetector )
 
+  if "lstm" in args.detectors:
+    from nab.detectors.lstm.lstm_detector import LstmDetector
+
 
   if args.skipConfirmation or checkInputs(args):
     main(args)

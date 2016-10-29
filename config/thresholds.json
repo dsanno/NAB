@@ -152,5 +152,33 @@
             "score": -44.7538610655,
             "threshold": 1.0
         }
+    },
+    "windowedGaussian": {
+        "reward_low_FN_rate": {
+            "score": -98.7538610655,
+            "threshold": 1.0
+        },
+        "reward_low_FP_rate": {
+            "score": -87.9970284629,
+            "threshold": 1.0
+        },
+        "standard": {
+            "score": -44.7538610655,
+            "threshold": 1.0
+        }
+    },
+    "lstm": {
+      "reward_low_FN_rate": {
+          "score": 0,
+          "threshold": 1.0
+      },
+      "reward_low_FP_rate": {
+          "score": 0,
+          "threshold": 1.0
+      },
+      "standard": {
+          "score": 0,
+          "threshold": 1.0
+      }
     }
 }
