@@ -39,8 +39,8 @@ class LSTMAnomalyDetector(object):
         rangePadding = abs(input_max - input_min) * 0.2 + 1e-4
         self.encoder = ScalarEncoder(bit_length, input_min - rangePadding, input_max + rangePadding, n=input_size, forced=True)
 
-        self.max_width = 50
-        self.max_chain = 20
+        self.max_width = 20
+        self.max_chain = 50
         self.unchain_interval = 10
         self.iteration = 0
         self.last_anomaly_iteration = -1000
@@ -64,7 +64,7 @@ class LSTMAnomalyDetector(object):
         self.inputs.pop()
         t = Variable(self.xp.asarray(self.inputs, dtype=np.int32))
         y, loss = self._update(x, t, self.iteration > 1)
-        y_raw = y.data[0]
+        y_raw = F.sigmoid(y).data[0]
         t_raw = t.data[0]
         self.scores.append(1 - float(np.dot(y_raw, t_raw) / np.sum(t_raw)))
         if len(self.scores) > self.long_term:
@@ -77,10 +77,10 @@ class LSTMAnomalyDetector(object):
             self.losses[-self.max_chain].unchain_backward()
             self.losses = self.losses[-self.max_chain:]
         if self.iteration < self.last_anomaly_iteration + 200:
-            score = float(np.clip((recent_mean - mean) / std, 0, 0.99))
+            score = float(np.clip((recent_mean - mean) / std * 0.5, 0, 0.50))
         else:
-            score = float(np.clip((recent_mean - mean) / std, 0, 1))
-            if score >= 1:
+            score = float(np.clip((recent_mean - mean) / std * 0.5, 0, 1))
+            if score >= 0.7:
                 self.last_anomaly_iteration = self.iteration
         self.iteration += 1
         return score

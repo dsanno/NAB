@@ -170,15 +170,15 @@
     "lstm": {
       "reward_low_FN_rate": {
           "score": 0,
-          "threshold": 1.0
+          "threshold": 0.7
       },
       "reward_low_FP_rate": {
           "score": 0,
-          "threshold": 1.0
+          "threshold": 0.7
       },
       "standard": {
           "score": 0,
-          "threshold": 1.0
+          "threshold": 0.7
       }
     }
 }
