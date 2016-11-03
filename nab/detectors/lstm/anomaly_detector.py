@@ -39,8 +39,8 @@ class LSTMAnomalyDetector(object):
         rangePadding = abs(input_max - input_min) * 0.2 + 1e-4
         self.encoder = ScalarEncoder(bit_length, input_min - rangePadding, input_max + rangePadding, n=input_size, forced=True)
 
-        self.max_width = 20
-        self.max_chain = 50
+        self.max_width = 50
+        self.max_chain = 20
         self.unchain_interval = 10
         self.iteration = 0
         self.last_anomaly_iteration = -1000
