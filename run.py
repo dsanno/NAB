@@ -203,6 +203,8 @@ if __name__ == "__main__":
 
   if "lstm" in args.detectors:
     from nab.detectors.lstm.lstm_detector import LstmDetector
+  if "lstm2" in args.detectors:
+    from nab.detectors.lstm2.lstm_detector import Lstm2Detector
 
 
   if args.skipConfirmation or checkInputs(args):
