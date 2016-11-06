@@ -14,6 +14,16 @@
         "reward_low_FP_rate": 3.1909311068965485,
         "standard": 16.43666922426724
     },
+    "lstm": {
+        "reward_low_FN_rate": 58.881036221091946,
+        "reward_low_FP_rate": 32.696793398836206,
+        "standard": 51.252588814413791
+    },
+    "lstm2": {
+        "reward_low_FN_rate": 47.893950260517244,
+        "reward_low_FP_rate": 25.106296713448277,
+        "standard": 41.237477114913794
+    },
     "null": {
         "reward_low_FN_rate": 0.0,
         "reward_low_FP_rate": 0.0,
